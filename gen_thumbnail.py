@@ -4,7 +4,7 @@ from PIL import Image
 from pathlib import Path
 from itertools import chain
 
-REF_WIDTH = 300
+REF_WIDTH = 600
 JSON_NAME = 'images.json'
 ARCHIVES = ['blog', 'chaotic', 'fine-weather']
 
@@ -23,7 +23,7 @@ def run():
       if path_str not in processed:
         img = Image.open(img_path)
         w, h = img.size
-        img.thumbnail((300, round(300/w*h)))
+        img.thumbnail((REF_WIDTH, round(REF_WIDTH/w*h)))
 
         thumbnail_folder = folder_path / 'thumbnail'
         thumbnail_folder.mkdir(exist_ok=True, parents=True)
